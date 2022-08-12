@@ -7,7 +7,6 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.47",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "react": "^18.2.0",
@@ -17,7 +16,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "set PORT=3002 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -39,5 +38,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.2"
   }
 }
