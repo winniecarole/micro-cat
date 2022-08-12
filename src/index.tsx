@@ -3,17 +3,26 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import * as serviceWorker from './serviceWorker';
 
-const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-);
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+// @ts-ignore
+window.renderCats = (containerId, history) => {
+  // @ts-ignore
+  ReactDOM.render(
+    // @ts-ignore
+    <App history={history} />,
+    document.getElementById(containerId),
+  );
+  serviceWorker.unregister();
+};
+// @ts-ignore
+window.unmountCats = containerId => {
+  // @ts-ignore
+  ReactDOM.unmountComponentAtNode(document.getElementById(containerId));
+};
+// @ts-ignore
+if (!document.getElementById('Cats-container')) {
+  // @ts-ignore
+  ReactDOM.render(<App />, document.getElementById('root'));
+  serviceWorker.unregister();
+}
